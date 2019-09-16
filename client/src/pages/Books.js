@@ -10,11 +10,13 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 class Books extends Component {
   state = {
     books: [],
-    title: "",
     author: "",
-    synopsis: ""
+    description: "",
+    image: "",
+    link: "",
+    title: ""
   };
-
+// Tet all books from the database and save them to this.state.books
   componentDidMount() {
     this.loadBooks();
   }
@@ -22,7 +24,7 @@ class Books extends Component {
   loadBooks = () => {
     API.getBooks()
       .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+        this.setState({ books: res.data, author: "", description: "", image: "",link: "",title: "" })
       )
       .catch(err => console.log(err));
   };
